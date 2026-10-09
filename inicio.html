@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URN | Inicio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    /* BARRA SUPERIOR */
+    .top-bar {
+      background-color: #320d35;
+      color: white;
+      padding: 6px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .top-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .top-links a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+    }
+
+    .top-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .top-social a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ENCABEZADO Y NAVEGACIÓN PRINCIPAL */
+    header {
+      background-color: #4A154B;
+      background-image: linear-gradient(rgba(74, 21, 75, 0.92), rgba(50, 13, 53, 0.95)), url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .logo-box {
+      border: 2px solid white;
+      padding: 4px 8px;
+      color: white;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .logo-sub {
+      font-size: 0.55rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-top: 1px solid white;
+      margin-top: 2px;
+      padding-top: 2px;
+    }
+
+    /* BARRA DE NAVEGACIÓN HORIZONTAL */
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 18px;
+      padding: 5px 0;
+      margin: 0;
+    }
+
+    .nav-menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      display: block;
+      padding: 6px 4px;
+    }
+
+    .nav-menu li a:hover,
+    .nav-menu li a.active {
+      color: #D8B4FE;
+    }
+
+    /* SECCIÓN HERO INICIO */
+    .hero {
+      background: linear-gradient(135deg, #4A154B 0%, #320d35 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background-color: #8B5CF6;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+    }
+
+    .btn-hero:hover {
+      background-color: #6B21A8;
+    }
+
+    /* CARACTERÍSTICAS */
+    .features {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .feature-card i {
+      font-size: 2.5rem;
+      color: #4A154B;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: #320d35;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #320d35;
+      color: white;
+      padding: 40px 20px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="top-bar">
+    <div class="top-links">
+      <a href="#"><i class="fas fa-sign-in-alt"></i> ACCESO</a>
+      <a href="#"><i class="fas fa-envelope"></i> CHIHUAHUA</a>
+      <a href="#"><i class="fas fa-envelope"></i> JUÁREZ</a>
+    </div>
+    <div class="top-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fas fa-phone"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <!-- ENCABEZADO Y BARRA DE NAVEGACIÓN -->
+  <header>
+    <div class="nav-container">
+      <a href="inicio.html" style="text-decoration: none;">
+        <div class="logo-container">
+          <div class="logo-box">
+            URN
+            <div class="logo-sub">UNIVERSIDAD</div>
+          </div>
+        </div>
+      </a>
+      
+      <!-- Navegación horizontal -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="inicio.html" class="active">Inicio</a></li>
+          <li><a href="javascript:void(0)" onclick="mostrarMensaje('¿Por qué URN?')">¿Por qué URN?</a></li>
+          <li><a href="javascript:void(0)" onclick="mostrarMensaje('Licenciaturas')">Licenciaturas</a></li>
+          <li><a href="javascript:void(0)" onclick="mostrarMensaje('Posgrados')">Posgrados</a></li>
+          <li><a href="campus.html">Campus</a></li>
+          <li><a href="javascript:void(0)" onclick="mostrarMensaje('Servicios escolares')">Servicios escolares</a></li>
+          <li><a href="javascript:void(0)" onclick="mostrarMensaje('Unidades')">Unidades</a></li>
+          <li><a href="javascript:void(0)" onclick="mostrarMensaje('Contacto')">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL DE INICIO -->
+  <section class="hero">
+    <h1>Universidad Regional del Norte</h1>
+    <p>Bienvenido a la URN. Formamos profesionales comprometidos con la excelencia académica, la innovación y el desarrollo social de nuestra región.</p>
+    <a href="campus.html" class="btn-hero"><i class="fas fa-university"></i> Conoce Nuestros Campus</a>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <i class="fas fa-graduation-cap"></i>
+      <h3>Excelencia Académica</h3>
+      <p>Programas de estudio actualizados e impartidos por docentes con amplia experiencia profesional.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-clock"></i>
+      <h3>Flexibilidad de Horarios</h3>
+      <p>Modalidades escolarizada, sabatina, ejecutiva y virtual para adaptarnos a tu estilo de vida.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-map-marked-alt"></i>
+      <h3>Presencia en el Estado</h3>
+      <p>Contamos con múltiples planteles en el estado para estar más cerca de ti.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Universidad URN</h3>
+        <p style="margin-top: 10px; font-size: 0.9rem; line-height: 1.5;">
+          Institución de Educación Superior dedicada a la excelencia académica y al desarrollo integral.
+        </p>
+      </div>
+      <div>
+        <h3>Navegación</h3>
+        <p style="margin-top: 10px; font-size: 0.9rem; line-height: 1.8;">
+          • <a href="inicio.html" style="color:white;">Inicio</a><br>
+          • <a href="campus.html" style="color:white;">Campus</a>
+        </p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <p style="margin-top: 10px; font-size: 0.9rem; line-height: 1.8;">
+          <i class="fas fa-phone"></i> 800 000 URN<br>
+          <i class="fas fa-envelope"></i> contacto@urn.edu.mx
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Vazquez Hernandez Eliana Karime 0908.
+    </div>
+  </footer>
+
+  <script>
+    function mostrarMensaje(seccion) {
+      alert(`La sección '${seccion}' no está habilitada. Los enlaces activos son 'Inicio' y 'Campus'.`);
+    }
+  </script>
+</body>
+</html>
